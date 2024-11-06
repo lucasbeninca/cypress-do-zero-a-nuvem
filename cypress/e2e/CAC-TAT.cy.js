@@ -36,6 +36,8 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#email').type('lucas@1234')
     cy.get('#open-text-area').type(longTexto, {delay:0})
     cy.get('button[type="submit"]').click()
+ // cy.contains('button','Enviar').click()
+
 
     cy.get('.error').should('be.visible')
 
@@ -79,6 +81,8 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     const longTexto = Cypress._.repeat('abdcdefghijklmnopqrstuvwxyz',10)
     cy.get('#open-text-area').type(longTexto, {delay:0})
     cy.get('button[type="submit"]').click()
+ // cy.contains('button','Enviar').click()
+
 
     cy.get('.error').should('be.visible')
 
@@ -97,8 +101,8 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.success').should('be.visible')
   })
 
-  it.only('envia o formuário com sucesso usando um comando customizado com valores padroes', () => {   
-    cy.enviandoFormularioComSucesso(data)
+  it('envia o formuário com sucesso usando um comando customizado com valores padroes', () => {   
+    cy.enviandoFormularioComSucesso()
     cy.get('.success').should('be.visible')
   })
 })
