@@ -3,8 +3,6 @@ describe('template spec', () => {
 beforeEach(() => {
   cy.visit('../src/index.html')
 
-
-
 })
 
 describe('Central de Atendimento ao Cliente TAT', () => {
@@ -27,7 +25,6 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   })
 
-  
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
     const longTexto = Cypress._.repeat('abdcdefghijklmnopqrstuvwxyz',10)
 
@@ -37,8 +34,6 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#open-text-area').type(longTexto, {delay:0})
     cy.get('button[type="submit"]').click()
  // cy.contains('button','Enviar').click()
-
-
     cy.get('.error').should('be.visible')
 
   })
@@ -50,7 +45,6 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#phone').type('abc')
     cy.get('#phone').should('have.text','')
     
-
   })
 
   it('preenche e limpa os campos nome, sobrenome, email e telefone', () => {
@@ -72,8 +66,6 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     .clear()
     .should('have.value','')
 
-    
- 
   })
   
 
@@ -82,8 +74,6 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#open-text-area').type(longTexto, {delay:0})
     cy.get('button[type="submit"]').click()
  // cy.contains('button','Enviar').click()
-
-
     cy.get('.error').should('be.visible')
 
   })
@@ -106,7 +96,6 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.success').should('be.visible')
   })
 
-
   it('seleciona um produto (YouTube) por seu texto', () => {   
     cy.get('#product')
     .select('YouTube')
@@ -120,7 +109,6 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     .should('have.value','mentoria')
 
   })
-
 
   it('seleciona um produto (Blog) por seu índice', () => {   
     cy.get('#product')
