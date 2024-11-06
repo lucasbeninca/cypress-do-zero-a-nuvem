@@ -139,7 +139,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   })
  
-  it.only('marca cada tipo de atendimento (usando cy.Each e cy.Wrap)', () => {  
+  it('marca cada tipo de atendimento (usando cy.Each e cy.Wrap)', () => {  
 // a função cy.each recebe como argumento uma função e com o cy.wrap podemos empacotar o que foi recebido no cy.each e inteirar sobre os elementos
     cy.get('input[type="radio"]')
       .each(tiposDeAtendimento => {
@@ -147,12 +147,36 @@ describe('Central de Atendimento ao Cliente TAT', () => {
           .check()
           .should('be.checked')
 
-      })
-   
-     
-
-  
+      })  
   })
+
+
+  it('  marca ambos checkboxes, depois desmarca o último (usando id))', () => {  
+    cy.get('#email-checkbox')
+    .check()
+    .should('be.checked')
+
+    cy.get('#phone-checkbox')
+    .check()
+    .should('be.checked')
+
+    cy.get('#phone-checkbox')
+    .uncheck()
+    .should('be.not.checked')
+
+   })  
+
+   it.only('  marca ambos checkboxes, depois desmarca o último (usando seletor mais generico))', () => {  
+    cy.get('input[type="checkbox"]')
+    .check()
+    .should('be.checked')
+    .last()
+    .uncheck()
+    .should('not.be.checked')
+
+
+   })  
+
 
 
 
