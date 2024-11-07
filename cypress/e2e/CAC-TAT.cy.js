@@ -151,7 +151,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
 
-  it('  marca ambos checkboxes, depois desmarca o último (usando id))', () => {  
+  it('marca ambos checkboxes, depois desmarca o último (usando id))', () => {  
     cy.get('#email-checkbox')
     .check()
     .should('be.checked')
@@ -166,7 +166,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
    })  
 
-   it.only('  marca ambos checkboxes, depois desmarca o último (usando seletor mais generico))', () => {  
+   it('marca ambos checkboxes, depois desmarca o último (usando seletor mais generico))', () => {  
     cy.get('input[type="checkbox"]')
     .check()
     .should('be.checked')
