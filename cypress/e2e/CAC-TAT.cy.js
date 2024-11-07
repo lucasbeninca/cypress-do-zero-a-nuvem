@@ -177,12 +177,62 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
    })  
 
+   it('console.log', () => {  
+    cy.get('#file-upload')
+    .selectFile('cypress/fixtures/example.json')
+    .should(input =>  {
+      console.log(input)
+
+    })
+  })
+
+   it('seleciona um arquivo da pasta fixtures', () => {  
+    cy.get('#file-upload')
+    .selectFile('cypress/fixtures/example.json')
+    .should(input =>{
+      expect(input[0].files[0].name).to.equal('example.json')
+
+    })
+   })  
+
+   // usando .then ele não tem o mecanismo de re-tentativas
+   it('seleciona um arquivo da pasta fixtures .then', () => {  
+    cy.get('#file-upload')
+    .selectFile('cypress/fixtures/example.json')
+    .then(input =>{
+      expect(input[0].files[0].name).to.equal('example.json')
+
+    })
+   })  
+
+   it('seleciona um arquivo da pasta fixtures drag-an-drop', () => {  
+    cy.get('#file-upload')
+    .selectFile('cypress/fixtures/example.json', {action: 'drag-drop'})
+    .should(input =>{
+      expect(input[0].files[0].name).to.equal('example.json')
+
+    })
+   })  
+
+   it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', () => {  
+    cy.fixture('example.json',{ encoding: null}).as('exampleTest')
+    cy.get('#file-upload')
+    .selectFile('@exampleTest')
+    .should(input =>{
+      expect(input[0].files[0].name).to.equal('example.json')
+
+    })
+   })  
+
+  
+
+
+
 
 
 
   
 
+
 })
 })
-
-
