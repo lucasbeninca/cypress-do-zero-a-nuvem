@@ -5,7 +5,8 @@
   "main": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "npx cypress open"
+    "cypress:open": "npx cypress open",
+    "cyress:runner:moba":"cypress run --config viewportWidth=410 viewportHeight=860"
   },
   "repository": {
     "type": "git",
