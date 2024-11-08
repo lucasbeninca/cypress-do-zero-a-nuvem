@@ -13,11 +13,5 @@ it('testa a página da política de privacidade de forma independente', () => {
 
     cy.contains('p', 'No entanto, a aplicação é um exemplo, sem qualquer persistência de dados, e usada para fins de ensino.')
     .should('be.visible')
-    
-    cy.contains('p', 'No entanto, a aplicação é um exemplo, sem qualquer persistência de dados, e usada para fins de ensino.')
-    .should('be.visible')
-
-    cy.contains('p', 'No entanto, a aplicação é um exemplo, sem qualquer persistência de dados, e usada para fins de ensino.')
-    .should('be.visible')
   
    })  
